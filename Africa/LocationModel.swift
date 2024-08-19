@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import MapKit
 
 
-struct location: Codable, Identifiable {
-    let id: String
-    let name: String
-    let image: String
-    let latitude: Double
-    let longitude: Double
+struct NationalParkLocation : Codable, Identifiable {
+    var id: String
+    var name: String
+    var image: String
+    var latitude: Double
+    var longitude: Double
+    
+    // Computed Property
+    
+    var location: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
